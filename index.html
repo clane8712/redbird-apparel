@@ -21,7 +21,7 @@ p.lead{font-size:19px;line-height:1.55;color:#444;max-width:30ch}
 .btn{display:inline-flex;align-items:center;gap:8px;height:50px;padding:0 22px;border-radius:10px;font-weight:700;font-size:16px;text-decoration:none}
 .btn.red{background:#C8102E;color:#fff}
 .btn.line{border:1.5px solid #111;color:#111}
-.wall{position:relative;border-radius:18px;aspect-ratio:4/5;overflow:hidden;background:#F7F7F5;border:1px solid #EEE;transition:background-color 1.4s ease}
+.wall{position:relative;border-radius:18px;aspect-ratio:4/5;overflow:hidden;background:#F7F7F5;transition:background-color 1.4s ease}
 .wall .in{position:absolute;inset:-18%;transform:rotate(-8deg);display:flex;flex-direction:column;gap:2%}
 .wall .row{display:flex;gap:2%;flex:1}
 .wall .row:nth-child(even){margin-left:-7%}
@@ -29,7 +29,7 @@ p.lead{font-size:19px;line-height:1.55;color:#444;max-width:30ch}
 .wall.red{background:#FFFFFF}.wall.red .row i{background-color:#C8102E}
 .talk{background:#F5F5F3;border-top:1px solid #EEE}
 .talk .in{max-width:1180px;margin:0 auto;padding:56px 40px 64px;display:grid;grid-template-columns:1fr 1.2fr;gap:48px}
-.talk h2{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;font-size:56px;line-height:.95;letter-spacing:.5px;margin:10px 0 14px}
+.talk h2{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;font-size:40px;line-height:1;letter-spacing:.5px;margin:0 0 12px}
 .talk p{font-size:17px;line-height:1.55;color:#555;max-width:34ch}
 form{display:flex;flex-direction:column;gap:12px}
 .topics{display:flex;flex-wrap:wrap;gap:8px}
@@ -43,13 +43,15 @@ form{display:flex;flex-direction:column;gap:12px}
 .f .hp{position:absolute;left:-9999px}
 .send{height:50px;border:0;border-radius:10px;background:#C8102E;color:#fff;font:inherit;font-weight:700;font-size:16px;cursor:pointer;align-self:flex-start;padding:0 28px}
 .note{font-size:14px;min-height:20px}.note.ok{color:#1E6B34}.note.err{color:#C8102E}
-@media (max-width:760px){.talk .in{grid-template-columns:1fr;gap:20px;padding:40px 20px 48px}.talk h2{font-size:44px}.row2{grid-template-columns:1fr}.send{align-self:stretch}}
+@media (max-width:760px){.talk .in{grid-template-columns:1fr;gap:20px;padding:40px 20px 48px}.talk h2{font-size:34px}.row2{grid-template-columns:1fr}.send{align-self:stretch}}
 footer{border-top:1px solid #EEE;padding:22px 40px;font-size:13px;color:#888;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 @media (max-width:760px){
   header{padding:18px 20px}header span{display:none}
-  .hero{grid-template-columns:1fr;gap:28px;padding:16px 20px 40px}
-  h1{font-size:76px}
-  .wall{aspect-ratio:3/2}.wall .row i{flex-basis:10%}
+  .hero{grid-template-columns:1fr;gap:24px;padding:0 0 36px}
+  .hero > div:first-child{order:2;padding:0 20px}
+  .wall{order:1;aspect-ratio:5/4;border-radius:0}.wall .row i{flex-basis:11%}
+  h1{font-size:64px;margin:10px 0 14px}
+  .btns{display:none}
   footer{padding:18px 20px}
 }
 </style></head><body>
@@ -78,12 +80,12 @@ footer{border-top:1px solid #EEE;padding:22px 40px;font-size:13px;color:#888;dis
   </div>
 </section>
 <section class="talk" id="talk"><div class="in">
-  <div><div class="eyebrow">Talk to us</div><h2>What should we make?</h2><p>Ideas, requests, feedback on what you've seen. It goes straight to the Redbird team, and we read every one.</p></div>
+  <div><h2>What should we make?</h2><p>Ideas, requests, feedback on what you've seen. It goes straight to the Redbird team, and we read every one.</p></div>
   <form class="f" id="mf" novalidate>
     <div class="topics">
-      <label><input type="radio" name="topic" value="idea" checked><span>Product idea or request</span></label>
+      <label><input type="radio" name="topic" value="idea" checked><span>Idea</span></label>
       <label><input type="radio" name="topic" value="feedback"><span>Feedback</span></label>
-      <label><input type="radio" name="topic" value="other"><span>Something else</span></label>
+      <label><input type="radio" name="topic" value="other"><span>Other</span></label>
     </div>
     <div class="row2"><input type="text" name="name" placeholder="Your name" autocomplete="name"><input type="email" name="email" placeholder="Email" autocomplete="email"></div>
     <textarea name="message" placeholder="What's on your mind?"></textarea>
@@ -92,7 +94,7 @@ footer{border-top:1px solid #EEE;padding:22px 40px;font-size:13px;color:#888;dis
     <div class="note" id="mnote" role="status"></div>
   </form>
 </div></section>
-<footer><span>© 2026 VACOGear LLC, doing business as Redbird Apparel. A separate company from Redbird Cannabis. We don&rsquo;t sell cannabis.</span><a href="#talk" style="color:#888">Contact us</a></footer>
+<footer><span>© 2026 VACOGear LLC, doing business as Redbird Apparel. A separate company from Redbird Cannabis. We don&rsquo;t sell cannabis.</span></footer>
 <script>
 (function(){
   var w = document.getElementById('wall'); if (!w) return;
