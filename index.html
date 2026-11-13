@@ -21,10 +21,12 @@ p.lead{font-size:19px;line-height:1.55;color:#444;max-width:30ch}
 .btn{display:inline-flex;align-items:center;gap:8px;height:50px;padding:0 22px;border-radius:10px;font-weight:700;font-size:16px;text-decoration:none}
 .btn.red{background:#C8102E;color:#fff}
 .btn.line{border:1.5px solid #111;color:#111}
-.panel{background:#C8102E;border-radius:18px;aspect-ratio:4/5;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:28px}
-.panel .tee{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.panel svg{width:68%;height:auto}
-.panel .cap{position:relative;color:#fff;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;opacity:.85}
+.wall{position:relative;border-radius:18px;aspect-ratio:4/5;overflow:hidden;background:#F7F7F5;border:1px solid #EEE;transition:background-color 1.4s ease}
+.wall .in{position:absolute;inset:-18%;transform:rotate(-8deg);display:flex;flex-direction:column;gap:2%}
+.wall .row{display:flex;gap:2%;flex:1}
+.wall .row:nth-child(even){margin-left:-7%}
+.wall .row i{flex:0 0 12%;background-color:#111;-webkit-mask:var(--a) center/contain no-repeat;mask:var(--a) center/contain no-repeat;transition:background-color 1.4s ease}
+.wall.red{background:#FFFFFF}.wall.red .row i{background-color:#C8102E}
 .talk{background:#F5F5F3;border-top:1px solid #EEE}
 .talk .in{max-width:1180px;margin:0 auto;padding:56px 40px 64px;display:grid;grid-template-columns:1fr 1.2fr;gap:48px}
 .talk h2{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;font-size:56px;line-height:.95;letter-spacing:.5px;margin:10px 0 14px}
@@ -47,7 +49,7 @@ footer{border-top:1px solid #EEE;padding:22px 40px;font-size:13px;color:#888;dis
   header{padding:18px 20px}header span{display:none}
   .hero{grid-template-columns:1fr;gap:28px;padding:16px 20px 40px}
   h1{font-size:76px}
-  .panel{aspect-ratio:1/1}
+  .wall{aspect-ratio:3/2}.wall .row i{flex-basis:10%}
   footer{padding:18px 20px}
 }
 </style></head><body>
@@ -61,9 +63,18 @@ footer{border-top:1px solid #EEE;padding:22px 40px;font-size:13px;color:#888;dis
       <a class="btn red" href="#talk">Send us an idea</a>
     </div>
   </div>
-  <div class="panel">
-    <div class="tee"><svg viewBox="0 0 200 200" fill="none"><path d="M70 30 L40 42 L18 74 L44 88 L52 76 L52 172 L148 172 L148 76 L156 88 L182 74 L160 42 L130 30 C126 44 114 52 100 52 C86 52 74 44 70 30 Z" fill="#FFFFFF" opacity=".95"/><path d="M92 104c6-2 11-7 12-13 3 4 5 8 5 12 1-1 3-1 4-1-2 2-4 4-7 5 0 2-1 4-3 5 0-4-5-7-11-8z" fill="#C8102E"/></svg></div>
-    <div class="cap">First run · photos soon</div>
+  <div class="wall" id="wall" role="img" aria-label="Redbird strain art">
+    <div class="in">
+      <div class="row"><i style="--a:url(art/kush-mints.png)"></i><i style="--a:url(art/orange-cookies.png)"></i><i style="--a:url(art/gingerbread-man.png)"></i><i style="--a:url(art/grape-cake.png)"></i><i style="--a:url(art/dosi-pop.png)"></i><i style="--a:url(art/white-og.png)"></i><i style="--a:url(art/fresh-powder.png)"></i><i style="--a:url(art/grape-pie.png)"></i><i style="--a:url(art/lip-smacker.png)"></i></div>
+      <div class="row"><i style="--a:url(art/wedding-cake.png)"></i><i style="--a:url(art/sour-power-og.png)"></i><i style="--a:url(art/tropicanna-garlic.png)"></i><i style="--a:url(art/mai-tai-gushers.png)"></i><i style="--a:url(art/crumbled-lime.png)"></i><i style="--a:url(art/acai-gelato.png)"></i><i style="--a:url(art/zaitai.png)"></i><i style="--a:url(art/kitchen-sink.png)"></i><i style="--a:url(art/gmo.png)"></i></div>
+      <div class="row"><i style="--a:url(art/sour-diesel.png)"></i><i style="--a:url(art/la-pop-rockz.png)"></i><i style="--a:url(art/milk-cookies.png)"></i><i style="--a:url(art/scoops.png)"></i><i style="--a:url(art/jungle-fruit.png)"></i><i style="--a:url(art/black-dog.png)"></i><i style="--a:url(art/mitten-cake-batter.png)"></i><i style="--a:url(art/ice-cream-cake.png)"></i><i style="--a:url(art/mint-smash.png)"></i></div>
+      <div class="row"><i style="--a:url(art/colonel-crunch.png)"></i><i style="--a:url(art/strawberries-cream.png)"></i><i style="--a:url(art/nilla-wafer.png)"></i><i style="--a:url(art/papaya-cake.png)"></i><i style="--a:url(art/chocolate-bars.png)"></i><i style="--a:url(art/blue-dream.png)"></i><i style="--a:url(art/gelato.png)"></i><i style="--a:url(art/orange-kush-mints.png)"></i><i style="--a:url(art/tropicanna-haze.png)"></i></div>
+      <div class="row"><i style="--a:url(art/la-wedding-pop.png)"></i><i style="--a:url(art/collision-kush.png)"></i><i style="--a:url(art/raspberry-dosido.png)"></i><i style="--a:url(art/cherry-concussion.png)"></i><i style="--a:url(art/blueberry-haze.png)"></i><i style="--a:url(art/ultra-sour-chem-og.png)"></i><i style="--a:url(art/mk-ultra.png)"></i><i style="--a:url(art/crunch-berries.png)"></i><i style="--a:url(art/kush-cream-cake.png)"></i></div>
+      <div class="row"><i style="--a:url(art/kush-mints.png)"></i><i style="--a:url(art/orange-cookies.png)"></i><i style="--a:url(art/gingerbread-man.png)"></i><i style="--a:url(art/grape-cake.png)"></i><i style="--a:url(art/dosi-pop.png)"></i><i style="--a:url(art/white-og.png)"></i><i style="--a:url(art/fresh-powder.png)"></i><i style="--a:url(art/grape-pie.png)"></i><i style="--a:url(art/lip-smacker.png)"></i></div>
+      <div class="row"><i style="--a:url(art/wedding-cake.png)"></i><i style="--a:url(art/sour-power-og.png)"></i><i style="--a:url(art/tropicanna-garlic.png)"></i><i style="--a:url(art/mai-tai-gushers.png)"></i><i style="--a:url(art/crumbled-lime.png)"></i><i style="--a:url(art/acai-gelato.png)"></i><i style="--a:url(art/zaitai.png)"></i><i style="--a:url(art/kitchen-sink.png)"></i><i style="--a:url(art/gmo.png)"></i></div>
+      <div class="row"><i style="--a:url(art/sour-diesel.png)"></i><i style="--a:url(art/la-pop-rockz.png)"></i><i style="--a:url(art/milk-cookies.png)"></i><i style="--a:url(art/scoops.png)"></i><i style="--a:url(art/jungle-fruit.png)"></i><i style="--a:url(art/black-dog.png)"></i><i style="--a:url(art/mitten-cake-batter.png)"></i><i style="--a:url(art/ice-cream-cake.png)"></i><i style="--a:url(art/mint-smash.png)"></i></div>
+      <div class="row"><i style="--a:url(art/colonel-crunch.png)"></i><i style="--a:url(art/strawberries-cream.png)"></i><i style="--a:url(art/nilla-wafer.png)"></i><i style="--a:url(art/papaya-cake.png)"></i><i style="--a:url(art/chocolate-bars.png)"></i><i style="--a:url(art/blue-dream.png)"></i><i style="--a:url(art/gelato.png)"></i><i style="--a:url(art/orange-kush-mints.png)"></i><i style="--a:url(art/tropicanna-haze.png)"></i></div>
+    </div>
   </div>
 </section>
 <section class="talk" id="talk"><div class="in">
@@ -83,6 +94,12 @@ footer{border-top:1px solid #EEE;padding:22px 40px;font-size:13px;color:#888;dis
 </div></section>
 <footer><span>© 2026 VACOGear LLC, doing business as Redbird Apparel. A separate company from Redbird Cannabis. We don&rsquo;t sell cannabis.</span><a href="#talk" style="color:#888">Contact us</a></footer>
 <script>
+(function(){
+  var w = document.getElementById('wall'); if (!w) return;
+  if (Math.random() < 0.5) w.classList.add('red');
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  setInterval(function(){ w.classList.toggle('red'); }, 7000);
+})();
 (function(){
   var URL = 'https://script.google.com/macros/s/AKfycbyjOvW7SxUG-pIxwxN3rAunm9zvOA66r75xwNuwt_YDE-SLi6uSsGzC1F9xeYt8tf-iQQ/exec';   // the Merch.gs web app URL
   var t0 = Date.now(), f = document.getElementById('mf'), note = document.getElementById('mnote'), btn = f.querySelector('.send');
