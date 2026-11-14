@@ -12,7 +12,7 @@
 body{font-family:'DM Sans',Arial,sans-serif;background:#FFFFFF;color:#111;min-height:100vh;display:flex;flex-direction:column}
 header{display:flex;align-items:center;justify-content:space-between;padding:22px 40px}
 header img{height:30px}
-header span{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#777}
+header a.back{font-size:14px;font-weight:600;color:#444;text-decoration:none;border:1px solid #DDD;border-radius:999px;padding:8px 14px;white-space:nowrap}header a.back:hover{border-color:#111;color:#111}
 .hero{flex:1;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;max-width:1180px;margin:0 auto;padding:40px 40px 64px;width:100%}
 .eyebrow{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E}
 h1{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;font-size:112px;line-height:.9;letter-spacing:1px;margin:14px 0 18px}
@@ -46,7 +46,7 @@ form{display:flex;flex-direction:column;gap:12px}
 @media (max-width:760px){.talk .in{grid-template-columns:1fr;gap:20px;padding:40px 20px 48px}.talk h2{font-size:34px}.row2{grid-template-columns:1fr}.send{align-self:stretch}}
 footer{border-top:1px solid #EEE;padding:22px 40px;font-size:13px;color:#888;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 @media (max-width:760px){
-  header{padding:18px 20px}header span{display:none}
+  header{padding:18px 20px}header a.back{font-size:13px;padding:7px 12px}
   .hero{grid-template-columns:1fr;gap:24px;padding:0 0 36px}
   .hero > div:first-child{order:2;padding:0 20px}
   .wall{order:1;aspect-ratio:5/4;border-radius:0}.wall .row i{flex-basis:11%}
@@ -55,14 +55,14 @@ footer{border-top:1px solid #EEE;padding:22px 40px;font-size:13px;color:#888;dis
   footer{padding:18px 20px}
 }
 </style></head><body>
-<header><img src="wordmark.png" alt="Redbird"><span>Apparel</span></header>
+<header><img src="wordmark.png" alt="Redbird Apparel"><a class="back" href="https://redbird-cannabis.com/">Redbird Cannabis &#8599;</a></header>
 <section class="hero">
   <div>
     <div class="eyebrow">Coming soon</div>
     <h1>Redbird<br>Apparel</h1>
     <p class="lead">Hats, tees, rolling papers, grinders and more. The first run is on its way.</p>
     <div class="btns">
-      <a class="btn red" href="#talk">Send us an idea</a>
+      <a class="btn red" href="#talk">Get in touch</a>
     </div>
   </div>
   <div class="wall" id="wall" role="img" aria-label="Redbird strain art">
@@ -80,13 +80,8 @@ footer{border-top:1px solid #EEE;padding:22px 40px;font-size:13px;color:#888;dis
   </div>
 </section>
 <section class="talk" id="talk"><div class="in">
-  <div><h2>What should we make?</h2><p>Ideas, requests, feedback on what you've seen. It goes straight to the Redbird team, and we read every one.</p></div>
+  <div><h2>Get in touch</h2><p>Questions, ideas, requests or feedback. It goes straight to the Redbird Apparel team, and we read every one.</p></div>
   <form class="f" id="mf" novalidate>
-    <div class="topics">
-      <label><input type="radio" name="topic" value="idea" checked><span>Idea</span></label>
-      <label><input type="radio" name="topic" value="feedback"><span>Feedback</span></label>
-      <label><input type="radio" name="topic" value="other"><span>Other</span></label>
-    </div>
     <div class="row2"><input type="text" name="name" placeholder="Your name" autocomplete="name"><input type="email" name="email" placeholder="Email" autocomplete="email"></div>
     <textarea name="message" placeholder="What's on your mind?"></textarea>
     <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -94,7 +89,7 @@ footer{border-top:1px solid #EEE;padding:22px 40px;font-size:13px;color:#888;dis
     <div class="note" id="mnote" role="status"></div>
   </form>
 </div></section>
-<footer><span>© 2026 VACOGear LLC, doing business as Redbird Apparel. A separate company from Redbird Cannabis. We don&rsquo;t sell cannabis.</span></footer>
+<footer><span>© 2026 VACOGear LLC, doing business as Redbird Apparel. A separate company from Redbird Cannabis. We don&rsquo;t sell cannabis.</span><a href="https://redbird-cannabis.com/" style="color:#888">Redbird Cannabis &#8599;</a></footer>
 <script>
 (function(){
   var w = document.getElementById('wall'); if (!w) return;
@@ -107,7 +102,7 @@ footer{border-top:1px solid #EEE;padding:22px 40px;font-size:13px;color:#888;dis
   var t0 = Date.now(), f = document.getElementById('mf'), note = document.getElementById('mnote'), btn = f.querySelector('.send');
   f.addEventListener('submit', function(e){
     e.preventDefault();
-    var d = { topic: (f.querySelector('input[name=topic]:checked')||{}).value, name: f.name.value, email: f.email.value, message: f.message.value, hp: f.hp.value, ms: Date.now()-t0 };
+    var d = { name: f.name.value, email: f.email.value, message: f.message.value, hp: f.hp.value, ms: Date.now()-t0 };
     note.className='note'; note.textContent='Sending…'; btn.disabled=true;
     fetch(URL, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(d) })
       .then(function(r){ return r.json(); })
